@@ -1,0 +1,1200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roshan Steel – Bathroom Accessories</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --cream: #f8f4ee;
+        --cream2: #f2ebe0;
+        --cream3: #e8ddd0;
+        --warm-brown: #8b6b4a;
+        --dark-brown: #3d2b1a;
+        --gold: #c9a96e;
+        --gold-light: #e8d5b0;
+        --text-dark: #2c1f10;
+        --text-mid: #6b5040;
+        --text-light: #9b8070;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Jost", sans-serif;
+        background: var(--cream);
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+
+      /* NAVBAR */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 4rem;
+        background: rgba(248, 244, 238, 0.88);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--cream3);
+        transition:
+          padding 0.3s,
+          box-shadow 0.3s;
+      }
+      .nav-brand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--dark-brown);
+        letter-spacing: 0.04em;
+      }
+      .nav-brand span {
+        color: var(--gold);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-family: "Jost", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-mid);
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 2px;
+        transition: color 0.3s;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--gold);
+        transition: width 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--dark-brown);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* HAMBURGER MENU */
+      .hamburger-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 4px;
+        padding: 8px;
+      }
+      .hamburger-menu span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-mid);
+        transition: all 0.3s ease;
+        transform-origin: center;
+      }
+      .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* RESPONSIVE NAV */
+      @media (max-width: 676px) {
+        nav {
+          padding: 1.2rem 2rem;
+        }
+        .nav-links {
+          position: fixed;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: rgba(248, 244, 238, 0.95);
+          backdrop-filter: blur(12px);
+          flex-direction: column;
+          gap: 0;
+          padding: 2rem 2rem 1rem;
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          border-bottom: 1px solid var(--cream3);
+          box-shadow: 0 4px 20px rgba(61, 43, 26, 0.1);
+        }
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+        .nav-links li {
+          border-bottom: 1px solid rgba(155, 128, 112, 0.1);
+          padding: 1rem 0;
+        }
+        .nav-links li:last-child {
+          border-bottom: none;
+        }
+        .nav-links a {
+          font-size: 1rem;
+          padding: 0.5rem 0;
+          display: block;
+        }
+        .hamburger-menu {
+          display: flex;
+        }
+      }
+
+      /* HERO */
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 0 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 60% 70% at 80% 50%,
+            rgba(201, 169, 110, 0.12) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 40% 50% at 20% 30%,
+            rgba(139, 107, 74, 0.08) 0%,
+            transparent 60%
+          ),
+          var(--cream);
+      }
+      .hero-deco {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 45%;
+        background: var(--cream2);
+        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        opacity: 0.6;
+      }
+      .hero-deco-line {
+        position: absolute;
+        right: 44%;
+        top: 10%;
+        bottom: 10%;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        opacity: 0.4;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+      }
+      .hero-tag {
+        font-size: 0.72rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.3s forwards;
+      }
+      .hero-h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        font-weight: 300;
+        line-height: 1.05;
+        color: var(--dark-brown);
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        animation: fadeUp 0.9s 0.5s forwards;
+      }
+      .hero-h1 em {
+        font-style: italic;
+        color: var(--warm-brown);
+      }
+      .hero-sub {
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--text-mid);
+        line-height: 1.8;
+        max-width: 420px;
+        margin-bottom: 2.5rem;
+        opacity: 0;
+        animation: fadeUp 0.9s 0.7s forwards;
+      }
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.9rem 2.2rem;
+        background: var(--dark-brown);
+        color: var(--cream);
+        font-family: "Jost", sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+        opacity: 0;
+        animation: fadeUp 0.9s 0.9s forwards;
+      }
+      .hero-cta:hover {
+        background: var(--warm-brown);
+        transform: translateY(-2px);
+      }
+      .hero-cta svg {
+        transition: transform 0.3s;
+      }
+      .hero-cta:hover svg {
+        transform: translateX(4px);
+      }
+
+      .hero-img-frame {
+        position: absolute;
+        right: 4rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 340px;
+        height: 420px;
+        background: var(--cream3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeIn 1.2s 0.6s forwards;
+        border: 1px solid var(--gold-light);
+      }
+      /* Replace the placeholder div with an <img> tag to add your hero image */
+      .hero-img-placeholder {
+        text-align: center;
+        color: var(--text-light);
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+      }
+      .hero-img-placeholder p {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+      }
+      .hero-img-placeholder small {
+        font-size: 0.7rem;
+        color: var(--gold);
+        letter-spacing: 0.1em;
+        font-style: normal;
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-light);
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeIn 1s 1.5s forwards;
+      }
+      .scroll-line {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient(to bottom, var(--gold), transparent);
+        animation: scrollPulse 2s infinite;
+      }
+
+      /* SECTION COMMONS */
+      section {
+        padding: 7rem 4rem;
+      }
+      .section-tag {
+        font-size: 0.7rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.2rem, 4vw, 3.5rem);
+        font-weight: 300;
+        color: var(--dark-brown);
+        line-height: 1.1;
+      }
+
+      /* PRODUCTS SECTION */
+      #products {
+        background: var(--cream2);
+      }
+      .products-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 4rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+      }
+      @media (max-width: 768px) {
+        .products-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1.8rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .products-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
+      .product-card {
+        background: var(--cream);
+        border: 1px solid var(--gold-light);
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        cursor: pointer;
+      }
+      .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 40px rgba(61, 43, 26, 0.12);
+      }
+      .product-img {
+        height: 380px;
+        background: var(--cream3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      @media (max-width: 768px) {
+        .product-img {
+          height: 320px;
+        }
+      }
+      @media (max-width: 480px) {
+        .product-img {
+          height: 280px;
+        }
+      }
+      /* To add product images: replace .product-img-label content with:
+   <img src="your-image.jpg" style="width:100%;height:100%;object-fit:cover"> */
+      .product-img-label {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 0.95rem;
+        color: var(--text-light);
+      }
+      .product-img-label svg {
+        opacity: 0.2;
+      }
+      .product-edit-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: var(--gold);
+        color: var(--dark-brown);
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        font-family: "Jost", sans-serif;
+      }
+      .product-info {
+        padding: 1.5rem 1.75rem 2rem;
+      }
+      .product-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: var(--dark-brown);
+        margin-bottom: 0.6rem;
+        line-height: 1.3;
+      }
+      .product-desc {
+        font-size: 0.88rem;
+        color: var(--text-light);
+        line-height: 1.75;
+        font-weight: 300;
+      }
+      @media (max-width: 480px) {
+        .product-info {
+          padding: 1.2rem 1.5rem 1.5rem;
+        }
+        .product-name {
+          font-size: 1.2rem;
+        }
+        .product-desc {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* ABOUT STRIP */
+      #about {
+        background: var(--dark-brown);
+        padding: 5rem 4rem;
+        display: flex;
+        align-items: center;
+        gap: 6rem;
+        flex-wrap: wrap;
+      }
+      #about .section-title {
+        color: var(--cream);
+      }
+      #about .section-tag {
+        color: var(--gold);
+      }
+      .about-text {
+        color: rgba(248, 244, 238, 0.65);
+        font-weight: 300;
+        line-height: 1.9;
+        max-width: 480px;
+        margin-top: 1rem;
+      }
+      .stat-row {
+        display: flex;
+        gap: 3rem;
+        margin-top: 2.5rem;
+        flex-wrap: wrap;
+      }
+      .stat-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.8rem;
+        font-weight: 300;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: rgba(248, 244, 238, 0.5);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-top: 0.25rem;
+      }
+
+      /* CONTACT */
+      #contact {
+        background: var(--cream);
+      }
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .contact-detail-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--cream3);
+      }
+      .contact-detail-row:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--gold-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--gold);
+      }
+      .contact-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-light);
+        margin-bottom: 0.3rem;
+      }
+      .contact-val {
+        font-size: 1rem;
+        color: var(--text-dark);
+        font-weight: 400;
+      }
+
+      /* Map placeholder — replace with Google Maps iframe */
+      .contact-map {
+        height: 380px;
+        background: var(--cream3);
+        border: 1px solid var(--gold-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+        color: var(--text-light);
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1.1rem;
+      }
+      .map-edit-note {
+        font-size: 0.75rem;
+        font-family: "Jost", sans-serif;
+        font-style: normal;
+        color: var(--gold);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--dark-brown);
+        padding: 2rem 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-brand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: var(--cream);
+      }
+      .footer-brand span {
+        color: var(--gold);
+      }
+      .footer-copy {
+        font-size: 0.72rem;
+        color: rgba(248, 244, 238, 0.35);
+        letter-spacing: 0.05em;
+      }
+
+      /* SCROLL REVEAL */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-delay-1 {
+        transition-delay: 0.1s;
+      }
+      .reveal-delay-2 {
+        transition-delay: 0.2s;
+      }
+      .reveal-delay-3 {
+        transition-delay: 0.3s;
+      }
+      .reveal-delay-4 {
+        transition-delay: 0.4s;
+      }
+
+      /* KEYFRAMES */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes scrollPulse {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        nav {
+          padding: 1rem 2rem;
+        }
+        #hero {
+          padding: 0 2rem;
+          flex-direction: column;
+          justify-content: center;
+          padding-top: 6rem;
+        }
+        .hero-img-frame {
+          position: relative;
+          right: auto;
+          top: auto;
+          transform: none;
+          width: 100%;
+          max-width: 340px;
+          margin-top: 3rem;
+        }
+        .hero-deco {
+          display: none;
+        }
+        section {
+          padding: 5rem 2rem;
+        }
+        #about {
+          padding: 4rem 2rem;
+          gap: 3rem;
+        }
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          padding: 1.5rem 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar">
+      <div class="nav-brand">Roshan <span>Steel</span></div>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-deco"></div>
+      <div class="hero-deco-line"></div>
+
+      <div class="hero-content">
+        <p class="hero-tag">Bathroom Accessories &amp; Fixtures</p>
+        <h1 class="hero-h1">Crafted for <em>Elegant</em> Living Spaces</h1>
+        <p class="hero-sub">
+          Premium bathroom accessories that blend durability with refined
+          aesthetics — elevating every corner of your home.
+        </p>
+        <a class="hero-cta" href="#products">
+          Explore Collection
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M3 8h10M9 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <!-- HERO IMAGE: Replace the div below with <img src="your-image.jpg" style="width:100%;height:100%;object-fit:cover"> -->
+      <div class="hero-img-frame">
+        <div class="hero-img-placeholder">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <rect
+              x="8"
+              y="24"
+              width="48"
+              height="32"
+              rx="2"
+              stroke="#8B6B4A"
+              stroke-width="1.5"
+            />
+            <path
+              d="M16 24V20a16 16 0 0132 0v4"
+              stroke="#8B6B4A"
+              stroke-width="1.5"
+            />
+            <circle cx="32" cy="40" r="4" stroke="#8B6B4A" stroke-width="1.5" />
+          </svg>
+          <p>Hero Image</p>
+          <small>Edit to add your image</small>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ========== PRODUCTS ========== -->
+    <section id="products">
+      <div class="products-header">
+        <div>
+          <p class="section-tag reveal">What We Sell</p>
+          <h2 class="section-title reveal reveal-delay-1">Our Collection</h2>
+        </div>
+        <p
+          class="reveal reveal-delay-2"
+          style="
+            color: var(--text-light);
+            max-width: 300px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-weight: 300;
+          "
+        >
+          Precision-engineered steel accessories for the modern bathroom.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <!-- PRODUCT CARD 1 -->
+        <div class="product-card reveal reveal-delay-1">
+          <div class="product-img">
+            <img
+              src="images/7h1 (1).jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Stainless Steel Foldable Towel Rack</h3>
+            <p class="product-desc">
+              Wall-mounted rack with top shelf, towel bar, and hooks for compact
+              bathroom storage.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 2 -->
+        <div class="product-card reveal reveal-delay-2">
+          <div class="product-img">
+            <img
+              src="images/7h1 (2).jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Rose Gold Foldable Towel Rack</h3>
+            <p class="product-desc">
+              Stylish foldable towel holder with premium finish, shelf, and
+              hanging hooks.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 3 -->
+        <div class="product-card reveal reveal-delay-3">
+          <div class="product-img">
+            <img
+              src="images/Akar 05.04.2025_01.jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Multi-Layer Bathroom Organizer Rack</h3>
+            <p class="product-desc">
+              Space-saving rack with shelves, towel bar, and hooks for
+              toiletries and towels.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 4 -->
+        <div class="product-card reveal reveal-delay-4">
+          <div class="product-img">
+            <img
+              src="images/Akar 05.04.2025_02.jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Double Shelf Bathroom Storage Rack</h3>
+            <p class="product-desc">
+              Two-tier wall rack designed for storing bathroom essentials
+              neatly.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 5 -->
+        <div class="product-card reveal reveal-delay-1">
+          <div class="product-img">
+            <img
+              src="images/Akar 05.04.2025_03.jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Single Shelf Bathroom Rack</h3>
+            <p class="product-desc">
+              Minimal wall-mounted shelf ideal for bottles, creams, and
+              toiletries.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 6 -->
+        <div class="product-card reveal reveal-delay-2">
+          <div class="product-img">
+            <img
+              src="images/Akar Creation 218301.jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Chrome Foldable Towel Shelf Rack</h3>
+            <p class="product-desc">
+              Durable foldable towel rack with shelf and hooks for organized
+              storage.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 7 -->
+        <div class="product-card reveal reveal-delay-3">
+          <div class="product-img">
+            <img
+              src="images/Akar Creation 218302.jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Straight Towel Hanger Rod</h3>
+            <p class="product-desc">
+              Simple stainless steel towel rod for hanging towels and clothes.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 8 -->
+        <div class="product-card reveal reveal-delay-4">
+          <div class="product-img">
+            <img
+              src="images/Akar Creation 218303.jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Premium Towel Storage Rack</h3>
+            <p class="product-desc">
+              Elegant wall-mounted rack with shelf and multiple hooks for
+              bathroom use.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 9 -->
+        <div class="product-card reveal reveal-delay-1">
+          <div class="product-img">
+            <img
+              src="images/Akar Creation 218304.jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Compact Foldable Towel Holder</h3>
+            <p class="product-desc">
+              Modern foldable towel rack with sleek design for small spaces.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 10 -->
+        <div class="product-card reveal reveal-delay-2">
+          <div class="product-img">
+            <img
+              src="images/Akar Creation 218305.jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Wall Mounted Support Bracket</h3>
+            <p class="product-desc">
+              Strong metal bracket used for mounting shelves or towel racks
+              securely.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 11 -->
+        <div class="product-card reveal reveal-delay-3">
+          <div class="product-img">
+            <img
+              src="images/DSC01910 copy4.jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Folding Rack Side Bracket</h3>
+            <p class="product-desc">
+              Adjustable side support bracket for foldable wall racks and
+              holders.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 12 -->
+        <div class="product-card reveal reveal-delay-4">
+          <div class="product-img">
+            <img
+              src="images/DSC01006.JPG.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Luxury Chrome Towel Rack</h3>
+            <p class="product-desc">
+              Premium chrome-finish towel rack with shelf, rod, and hooks for
+              modern bathrooms.
+            </p>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARD 13 -->
+        <div class="product-card reveal reveal-delay-1">
+          <div class="product-img">
+            <img
+              src="images/7h1 (1).jpg.jpeg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Matte Black Towel Organizer Rack</h3>
+            <p class="product-desc">
+              Contemporary black wall rack with shelf, towel bar, and hooks for
+              stylish storage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about">
+      <div>
+        <p class="section-tag reveal">About Us</p>
+        <h2 class="section-title reveal reveal-delay-1">Roshan Steel</h2>
+        <p class="about-text reveal reveal-delay-2">
+          A trusted name in premium bathroom accessories. We manufacture and
+          supply high-quality stainless steel fittings designed to last a
+          lifetime — combining functional engineering with timeless style.
+        </p>
+        <div class="stat-row">
+          <div class="reveal reveal-delay-2">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Products</div>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <div class="stat-num">1K+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact">
+      <p class="section-tag reveal">Get In Touch</p>
+      <h2
+        class="section-title reveal reveal-delay-1"
+        style="margin-bottom: 3rem"
+      >
+        Contact Us
+      </h2>
+      <div class="contact-wrap">
+        <div>
+          <div class="contact-detail-row reveal">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                  d="M3.5 3h3l1.5 3.5-1.75 1.75A11 11 0 0010.75 11L12.5 9.25 16 10.75V14c0 .83-.67 1.5-1.5 1.5C7.12 15.5 2.5 10.88 2.5 4.5A1.5 1.5 0 014 3h-.5z"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">Phone / WhatsApp</div>
+              <!-- Edit phone number below -->
+              <div class="contact-val">+91 94284 40405</div>
+            </div>
+          </div>
+
+          <div class="contact-detail-row reveal reveal-delay-2">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                  d="M9 2C6.24 2 4 4.24 4 7c0 4.25 5 9 5 9s5-4.75 5-9c0-2.76-2.24-5-5-5z"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                />
+                <circle
+                  cx="9"
+                  cy="7"
+                  r="1.5"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">Address</div>
+              <!-- Edit address below -->
+              <div
+                class="contact-val"
+                style="color: var(--text-light); font-style: italic"
+              >
+                Bajrang Industrial Aeriya street no.1, Rajkot, Gujarat 360022
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAP: Google Maps iframe embed -->
+        <div class="contact-map reveal reveal-delay-2">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3034.0815607407853!2d70.8031245!3d22.246593600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959b57f69755ef3%3A0xd4c2320877620bd3!2sRoshan%20steel!5e1!3m2!1sen!2sin!4v1776514288847!5m2!1sen!2sin"
+            width="100%"
+            height="380"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+      <div class="footer-brand">Roshan <span>Steel</span></div>
+      <div class="footer-copy">
+        &copy; 2026 Roshan Steel. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // Scroll reveal animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Navbar shrink on scroll
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 60) {
+          if (window.innerWidth <= 676) {
+            nav.style.padding = "0.75rem 2rem";
+          } else {
+            nav.style.padding = "0.75rem 4rem";
+          }
+          nav.style.boxShadow = "0 2px 20px rgba(61,43,26,0.08)";
+        } else {
+          if (window.innerWidth <= 676) {
+            nav.style.padding = "1.2rem 2rem";
+          } else {
+            nav.style.padding = "1.2rem 4rem";
+          }
+          nav.style.boxShadow = "none";
+        }
+      });
+
+      // Hamburger menu toggle
+      const hamburgerMenu = document.getElementById("hamburger-menu");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburgerMenu.addEventListener("click", () => {
+        hamburgerMenu.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburgerMenu.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target)) {
+          hamburgerMenu.classList.remove("active");
+          navLinks.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
